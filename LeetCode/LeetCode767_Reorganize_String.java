@@ -1,4 +1,4 @@
-class LeetCode767ReorganizeString {
+class LeetCode767_Reorganize_String {
     public static String reorganizeString(String s) {
         int n = s.length();
         if (n == 0) {
