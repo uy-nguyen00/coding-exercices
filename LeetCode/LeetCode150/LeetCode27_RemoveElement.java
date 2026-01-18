@@ -1,3 +1,4 @@
+package LeetCode150;
 public class LeetCode27_RemoveElement {
 
     // Approach 1: Two Pointers
