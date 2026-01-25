@@ -1,9 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList; // For testing example
-import java.util.Arrays;    // For testing example
+import java.util.Arrays; // For testing example
 import java.util.Collections; // If choosing the Collections.max route
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Solution {
 
@@ -24,7 +24,10 @@ public class Solution {
         Map<Integer, Integer> locationCounts = new HashMap<>();
         // Enhanced for loop works seamlessly with List<Integer>
         for (int locationId : locations) {
-            locationCounts.put(locationId, locationCounts.getOrDefault(locationId, 0) + 1);
+            locationCounts.put(
+                locationId,
+                locationCounts.getOrDefault(locationId, 0) + 1
+            );
         }
 
         // Step 2: Find the maximum frequency (maxCount)
@@ -39,7 +42,6 @@ public class Solution {
         // if (!locationCounts.isEmpty()) { // Still good practice for robustness
         //    maxCount = Collections.max(locationCounts.values());
         // }
-
 
         // Step 3: Calculate the general minimum ops based on pairing (ceil(n/2))
         // Using integer division: (n + 1) / 2 calculates ceil(n / 2.0)
@@ -58,20 +60,30 @@ public class Solution {
         System.out.println("Example 1 Output: " + sol.minOperation(locations1)); // Expected: 3
 
         List<Integer> locations2 = Arrays.asList(1, 1, 1, 1, 8); // n=5, maxCount=4. Expected: 4
-        System.out.println("Test Case 1 Output: " + sol.minOperation(locations2));
+        System.out.println(
+            "Test Case 1 Output: " + sol.minOperation(locations2)
+        );
 
         List<Integer> locations3 = Arrays.asList(1, 2, 3, 4, 5); // n=5, maxCount=1. Expected: 3
-        System.out.println("Test Case 2 Output: " + sol.minOperation(locations3));
+        System.out.println(
+            "Test Case 2 Output: " + sol.minOperation(locations3)
+        );
 
         List<Integer> locations4 = Arrays.asList(1, 1, 2, 2); // n=4, maxCount=2. Expected: 2
-        System.out.println("Test Case 3 Output: " + sol.minOperation(locations4));
+        System.out.println(
+            "Test Case 3 Output: " + sol.minOperation(locations4)
+        );
 
         List<Integer> locations5 = Arrays.asList(1); // n=1, maxCount=1. Expected: 1
-        System.out.println("Test Case 4 Output: " + sol.minOperation(locations5));
+        System.out.println(
+            "Test Case 4 Output: " + sol.minOperation(locations5)
+        );
 
         // Using List.of() (for Java 9+) or Collections.emptyList()
         List<Integer> locations6 = Collections.emptyList(); // n=0. Expected: 0
         // List<Integer> locations6 = List.of(); // Java 9+ alternative
-        System.out.println("Test Case 5 Output: " + sol.minOperation(locations6));
+        System.out.println(
+            "Test Case 5 Output: " + sol.minOperation(locations6)
+        );
     }
 }

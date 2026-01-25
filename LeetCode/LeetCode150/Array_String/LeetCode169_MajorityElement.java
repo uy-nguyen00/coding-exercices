@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LeetCode169_MajorityElement {
-    
+
     // Time complexity: O(N)
     // Space complexity: O(N)
     public int majorityElement1(int[] nums) {

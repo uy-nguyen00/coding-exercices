@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 public class Candies {
 
@@ -41,7 +41,7 @@ public class Candies {
         // Test Cases
         System.out.println(candies(3, List.of(1, 2, 2))); // Expected: 4
         System.out.println(candies(6, List.of(4, 6, 4, 5, 6, 2))); // Expected: 10
-        System.out.println(candies(1, List.of(5)));       // Expected: 1
+        System.out.println(candies(1, List.of(5))); // Expected: 1
         System.out.println(candies(5, List.of(5, 5, 5, 5, 5))); // Expected: 5
         System.out.println(candies(5, List.of(1, 2, 3, 4, 5))); // Expected: 15
         System.out.println(candies(5, List.of(5, 4, 3, 2, 1))); // Expected: 15

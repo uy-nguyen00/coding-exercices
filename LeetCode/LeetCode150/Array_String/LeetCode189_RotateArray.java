@@ -1,7 +1,7 @@
 package LeetCode150.Array_String;
 
 public class LeetCode189_RotateArray {
-    
+
     /**
      * Brute Force.
      * Time complexity: O(N k).
@@ -24,7 +24,7 @@ public class LeetCode189_RotateArray {
     }
 
     /**
-     * Using an extra array by putting elements of the new array at indexes (i + k) % nums.length 
+     * Using an extra array by putting elements of the new array at indexes (i + k) % nums.length
      * Time complexity: O(N)
      * Space complexity: O(N), another array of the same size is used
      */
@@ -38,16 +38,15 @@ public class LeetCode189_RotateArray {
         }
     }
 
-
     /**
      * Using Reverse :
-     * 
+     *
      * Let n = 7, k = 3
      * Original List                   : 1 2 3 4 5 6 7
      * After reversing all numbers     : 7 6 5 4 3 2 1
      * After reversing first k numbers : 5 6 7 4 3 2 1
      * After revering last n-k numbers : 5 6 7 1 2 3 4 --> Result
-     * 
+     *
      * Time complexity: O(N)
      * Space complexity: O(1)
      */

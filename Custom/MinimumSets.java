@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Solution {
 
     private static class Interval {
+
         int start;
         int end;
 
@@ -75,7 +76,8 @@ public class Solution {
             // The minimal length interval is (end1, start2), length = start2 - end1.
             // Check if this minimal length is within the allowed k.
             // Ensure start2 > end1 for a real gap according to strict merge.
-            if (start2 > end1) { // Check only actual gaps
+            if (start2 > end1) {
+                // Check only actual gaps
                 int minBridgeLen = start2 - end1;
                 if (minBridgeLen <= k) {
                     canBridge = true;
@@ -103,7 +105,10 @@ public class Solution {
         // With strict merge: merges to [(1,4), (5,8), (10,11)]. numComp=3.
         // Gap 1: e1=4, s2=5. bridgeLen = 5-4=1. 1<=k=2. Can bridge.
         // Result = 3 - 1 = 2.
-        System.out.println("Failing Case Output (Strict): " + minimumSets(a_fail, b_fail, k_fail)); // Expected: 2
+        System.out.println(
+            "Failing Case Output (Strict): " +
+                minimumSets(a_fail, b_fail, k_fail)
+        ); // Expected: 2
 
         List<Integer> a_ex = List.of(1, 2, 6, 7, 16);
         List<Integer> b_ex = List.of(5, 4, 6, 14, 19);
@@ -111,7 +116,9 @@ public class Solution {
         // With strict merge: [(1,5), (6,6), (7,14), (16,19)]. numComp=4.
         // Gap 1: e1=5, s2=6. bridgeLen=6-5=1. 1<=k=2. Can bridge.
         // Result = 4 - 1 = 3.
-        System.out.println("Example Output (Strict): " + minimumSets(a_ex, b_ex, k_ex)); // Expected based on example text: 2. Still a mismatch!
+        System.out.println(
+            "Example Output (Strict): " + minimumSets(a_ex, b_ex, k_ex)
+        ); // Expected based on example text: 2. Still a mismatch!
 
         // Let's re-run the original example's logic with the strict rules.
         // The example text itself seems inconsistent. However, let's try to match the failing case's expected output of 2.

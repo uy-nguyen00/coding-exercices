@@ -13,6 +13,7 @@ import java.util.*;
 class LeetCode863_All_Nodes_Distance_K_In_Binary_Tree {
 
     public static class TreeNode {
+
         int val;
         TreeNode left;
         TreeNode right;
@@ -24,7 +25,11 @@ class LeetCode863_All_Nodes_Distance_K_In_Binary_Tree {
 
     private static Map<TreeNode, TreeNode> parentMap;
 
-    public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+    public static List<Integer> distanceK(
+        TreeNode root,
+        TreeNode target,
+        int k
+    ) {
         List<Integer> result = new ArrayList<>();
         if (root == null || target == null || k < 0) {
             return result;
@@ -63,13 +68,19 @@ class LeetCode863_All_Nodes_Distance_K_In_Binary_Tree {
                 // Add neighbors (left, right, parent) if they exist and haven't been visited
 
                 // Left Child
-                if (currentNode.left != null && !visited.contains(currentNode.left)) {
+                if (
+                    currentNode.left != null &&
+                    !visited.contains(currentNode.left)
+                ) {
                     visited.add(currentNode.left);
                     queue.offer(currentNode.left);
                 }
 
                 // Right Child
-                if (currentNode.right != null && !visited.contains(currentNode.right)) {
+                if (
+                    currentNode.right != null &&
+                    !visited.contains(currentNode.right)
+                ) {
                     visited.add(currentNode.right);
                     queue.offer(currentNode.right);
                 }

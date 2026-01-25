@@ -1,4 +1,5 @@
 class Solution {
+
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         // Use an array to count boxes for each unit value (1 to 1000)
         // Index represents unitsPerBox, value represents total numberOfBoxes with that unit value.
@@ -24,7 +25,10 @@ class Solution {
             // Check if there are boxes with the current 'units' value
             if (boxesPerUnitValue[units] > 0) {
                 // Determine how many boxes of this type we can actually take
-                int boxesToTake = Math.min(boxesPerUnitValue[units], remainingTruckSize);
+                int boxesToTake = Math.min(
+                    boxesPerUnitValue[units],
+                    remainingTruckSize
+                );
 
                 // Add the units from these boxes to the total
                 totalUnits += boxesToTake * units;

@@ -1,4 +1,5 @@
 class LeetCode767_Reorganize_String {
+
     public static String reorganizeString(String s) {
         int n = s.length();
         if (n == 0) {
@@ -25,7 +26,7 @@ class LeetCode767_Reorganize_String {
         char[] result = new char[n];
         int idx = 0;
 
-        while(counts[maxChar - 'a'] > 0) {
+        while (counts[maxChar - 'a'] > 0) {
             result[idx] = maxChar;
             idx += 2;
             counts[maxChar - 'a']--;

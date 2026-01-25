@@ -1,7 +1,7 @@
 package LeetCode150.Array_String;
 
 public class LeetCode122_BestTimeToBuyAndSellStock2 {
-    
+
     /**
      * Peak Valley Approach
      * Time complexity: O(N)

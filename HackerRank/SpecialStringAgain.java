@@ -9,19 +9,19 @@ public class TwoStrings {
 
         while (i < n) {
             int charCount = 1;
-            
+
             while (i + 1 < n && s.charAt(i) == s.charAt(i + 1)) {
                 i++;
                 charCount++;
             }
-            
-            result += charCount * (charCount + 1) / 2;
+
+            result += (charCount * (charCount + 1)) / 2;
             i++;
         }
-        
+
         for (int j = 1; j < n; j++) {
             int charCount = 1;
-                
+
             while (
                 j + charCount < n &&
                 j - charCount >= 0 &&
@@ -31,14 +31,12 @@ public class TwoStrings {
             ) {
                 charCount++;
             }
-                
-            result += charCount - 1;            
+
+            result += charCount - 1;
         }
-        
+
         return result;
     }
 
-    public static void main(String[] args) {
-       
-    }
+    public static void main(String[] args) {}
 }

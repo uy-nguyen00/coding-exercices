@@ -21,14 +21,13 @@ public class AlternatingCharacters {
 
     public static void main(String[] args) {
         // Test Cases
-        System.out.println(alternatingCharacters("AAAA"));     // Expected: 3
-        System.out.println(alternatingCharacters("BBBBB"));    // Expected: 4
+        System.out.println(alternatingCharacters("AAAA")); // Expected: 3
+        System.out.println(alternatingCharacters("BBBBB")); // Expected: 4
         System.out.println(alternatingCharacters("ABABABAB")); // Expected: 0
-        System.out.println(alternatingCharacters("BABABA"));   // Expected: 0
-        System.out.println(alternatingCharacters("AAABBB"));   // Expected: 4
-        System.out.println(alternatingCharacters("A"));        // Expected: 0
-        System.out.println(alternatingCharacters(""));         // Expected: 0
-        System.out.println(alternatingCharacters("ABBA"));         // Expected: 1
-
+        System.out.println(alternatingCharacters("BABABA")); // Expected: 0
+        System.out.println(alternatingCharacters("AAABBB")); // Expected: 4
+        System.out.println(alternatingCharacters("A")); // Expected: 0
+        System.out.println(alternatingCharacters("")); // Expected: 0
+        System.out.println(alternatingCharacters("ABBA")); // Expected: 1
     }
 }

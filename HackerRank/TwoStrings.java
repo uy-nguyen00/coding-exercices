@@ -25,13 +25,12 @@ public class TwoStrings {
     public static void main(String[] args) {
         // Test Cases
         System.out.println(twoStrings("hello", "world")); // Expected: YES
-        System.out.println(twoStrings("hi", "world"));    // Expected: NO
-        System.out.println(twoStrings("and", "art"));    // Expected: YES
-        System.out.println(twoStrings("be", "cat"));     // Expected: NO
-        System.out.println(twoStrings("a", "b"));       // Expected: NO
-        System.out.println(twoStrings("a", "a"));       // Expected: YES
-        System.out.println(twoStrings("", "a"));       // Expected: NO
-        System.out.println(twoStrings("a", ""));       // Expected: NO
-
+        System.out.println(twoStrings("hi", "world")); // Expected: NO
+        System.out.println(twoStrings("and", "art")); // Expected: YES
+        System.out.println(twoStrings("be", "cat")); // Expected: NO
+        System.out.println(twoStrings("a", "b")); // Expected: NO
+        System.out.println(twoStrings("a", "a")); // Expected: YES
+        System.out.println(twoStrings("", "a")); // Expected: NO
+        System.out.println(twoStrings("a", "")); // Expected: NO
     }
 }

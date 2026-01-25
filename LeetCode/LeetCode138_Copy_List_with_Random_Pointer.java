@@ -16,7 +16,9 @@ class Node {
 import java.util.*;
 
 class LeetCode138_Copy_List_with_Random_Pointer {
+
     public static class Node {
+
         int val;
         Node next;
         Node random;

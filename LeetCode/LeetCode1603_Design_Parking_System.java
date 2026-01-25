@@ -1,8 +1,9 @@
 class LeetCode1603_Design_Parking_System {
+
     private int[] slots = new int[3];
 
     public ParkingSystem(int big, int medium, int small) {
-        this.slots = new int[]{big, medium, small};
+        this.slots = new int[] { big, medium, small };
     }
 
     public boolean addCar(int carType) {

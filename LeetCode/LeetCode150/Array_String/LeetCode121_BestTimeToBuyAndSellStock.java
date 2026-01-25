@@ -6,7 +6,7 @@ public class LeetCode121_BestTimeToBuyAndSellStock {
      * Keep track of the profit so far through each day.
      * Time complexity: O(N)
      * Space complexity: O(1)
-     */ 
+     */
     public int maxProfit(int[] prices) {
         int minPriceSoFar = prices[0];
         int maxProfit = 0;
@@ -16,7 +16,7 @@ public class LeetCode121_BestTimeToBuyAndSellStock {
             int profit = prices[i] - minPriceSoFar;
             maxProfit = Math.max(maxProfit, profit);
         }
-        
+
         return maxProfit;
     }
 }

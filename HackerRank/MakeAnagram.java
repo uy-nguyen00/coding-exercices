@@ -4,10 +4,10 @@ public class MakeAnagram {
         if (a == null && b == null) {
             return 0;
         }
-        if(a == null || a.length() == 0){
+        if (a == null || a.length() == 0) {
             return b.length();
         }
-        if(b == null || b.length() == 0){
+        if (b == null || b.length() == 0) {
             return a.length();
         }
 
@@ -39,9 +39,9 @@ public class MakeAnagram {
         System.out.println(makeAnagram("cde", "dcf")); // Expected: 2
         System.out.println(makeAnagram("bacdc", "dcbac")); // Expected: 0
         System.out.println(makeAnagram("bacdc", "dcbad")); // Expected: 2
-        System.out.println(makeAnagram("", ""));          // Expected: 0
-        System.out.println(makeAnagram("a", ""));          // Expected: 1
-        System.out.println(makeAnagram("", "abc"));        // Expected: 3
-        System.out.println(makeAnagram("a", "aaa"));      // Expected: 2
+        System.out.println(makeAnagram("", "")); // Expected: 0
+        System.out.println(makeAnagram("a", "")); // Expected: 1
+        System.out.println(makeAnagram("", "abc")); // Expected: 3
+        System.out.println(makeAnagram("a", "aaa")); // Expected: 2
     }
 }

@@ -26,16 +26,16 @@ public class CommonChild {
 
         return dp[m][n];
     }
+
     public static void main(String[] args) {
         // Test Cases
-        System.out.println(commonChild("HARRY", "SALLY"));  // Expected: 2
-        System.out.println(commonChild("AA", "BB"));     // Expected: 0
+        System.out.println(commonChild("HARRY", "SALLY")); // Expected: 2
+        System.out.println(commonChild("AA", "BB")); // Expected: 0
         System.out.println(commonChild("SHINCHAN", "NOHARAA")); // Expected: 3
         System.out.println(commonChild("ABCDEF", "FBDAMN")); // Expected: 2
-        System.out.println(commonChild("", ""));            // Expected: 0
-        System.out.println(commonChild("A", ""));           // Expected: 0
-        System.out.println(commonChild("", "B"));           // Expected: 0
+        System.out.println(commonChild("", "")); // Expected: 0
+        System.out.println(commonChild("A", "")); // Expected: 0
+        System.out.println(commonChild("", "B")); // Expected: 0
         System.out.println(commonChild("ABCD", "ABDC")); //Expected 3
-
     }
 }

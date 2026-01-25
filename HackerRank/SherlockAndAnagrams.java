@@ -12,14 +12,17 @@ public class SherlockAndAnagramsSorted {
             for (int j = i; j < s.length(); j++) {
                 String substring = s.substring(i, j + 1);
                 String canonicalString = getCanonicalString(substring); // Use sorting
-                substringFrequencies.put(canonicalString, substringFrequencies.getOrDefault(canonicalString, 0) + 1);
+                substringFrequencies.put(
+                    canonicalString,
+                    substringFrequencies.getOrDefault(canonicalString, 0) + 1
+                );
             }
         }
 
         // Calculate the number of anagrammatic pairs
         int anagramPairs = 0;
         for (int frequency : substringFrequencies.values()) {
-            anagramPairs += frequency * (frequency - 1) / 2;
+            anagramPairs += (frequency * (frequency - 1)) / 2;
         }
 
         return anagramPairs;
@@ -32,7 +35,6 @@ public class SherlockAndAnagramsSorted {
         return new String(charArray);
     }
 
-
     public static void main(String[] args) {
         // Test Cases
         System.out.println(sherlockAndAnagrams("abba")); // Expected: 4
@@ -40,6 +42,6 @@ public class SherlockAndAnagramsSorted {
         System.out.println(sherlockAndAnagrams("ifailuhkqq")); // Expected: 3
         System.out.println(sherlockAndAnagrams("kkkk")); // Expected: 10
         System.out.println(sherlockAndAnagrams("cdcd")); // Expected: 5
-        System.out.println(sherlockAndAnagrams("mom"));  // Expected: 2
+        System.out.println(sherlockAndAnagrams("mom")); // Expected: 2
     }
 }

@@ -1,3 +1,6 @@
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -7,8 +10,6 @@ import java.util.concurrent.*;
 import java.util.function.*;
 import java.util.regex.*;
 import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
 class Result {
 
@@ -25,33 +26,37 @@ class Result {
         if (s == null || s.isEmpty()) {
             return 0;
         }
-        
+
         long aCountInS = 0;
         for (char c : s.toCharArray()) {
             if (c == 'a') {
                 aCountInS++;
             }
         }
-        
+
         long fullRepitition = n / s.length();
         long remainingLength = n % s.length();
         long aCountInRemainder = 0;
-        
+
         for (int i = 0; i < remainingLength; i++) {
             if (s.charAt(i) == 'a') {
                 aCountInRemainder++;
             }
         }
-        
+
         return (aCountInS * fullRepitition) + aCountInRemainder;
     }
-
 }
 
 public class Solution {
+
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        BufferedReader bufferedReader = new BufferedReader(
+            new InputStreamReader(System.in)
+        );
+        BufferedWriter bufferedWriter = new BufferedWriter(
+            new FileWriter(System.getenv("OUTPUT_PATH"))
+        );
 
         String s = bufferedReader.readLine();
 

@@ -1,9 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
 
 public class SherlockValidString {
 
@@ -19,8 +19,8 @@ public class SherlockValidString {
 
         // Use a List to store distinct frequencies.
         List<Integer> frequencies = new ArrayList<>();
-        for(int freq : charCounts){
-            if(freq > 0 && !frequencies.contains(freq)){
+        for (int freq : charCounts) {
+            if (freq > 0 && !frequencies.contains(freq)) {
                 frequencies.add(freq);
             }
         }
@@ -48,16 +48,22 @@ public class SherlockValidString {
         }
 
         //Case 1: One of the frequency is 1, and only appears once.
-        if ((freq1 == 1 && freq1Count == 1) || (freq2 == 1 && freq2Count == 1)) {
+        if (
+            (freq1 == 1 && freq1Count == 1) || (freq2 == 1 && freq2Count == 1)
+        ) {
             return "YES";
         }
 
         //Case 2: The difference between the frequency is 1. And only one instance of the bigger frequency exist.
-        if ((Math.abs(freq1 - freq2) == 1) && (freq1 > freq2 && freq1Count == 1 )) {
+        if (
+            (Math.abs(freq1 - freq2) == 1) && (freq1 > freq2 && freq1Count == 1)
+        ) {
             return "YES"; // Removing one instance makes it valid
         }
 
-        if ((Math.abs(freq1 - freq2) == 1) && (freq2 > freq1 && freq2Count == 1 )) {
+        if (
+            (Math.abs(freq1 - freq2) == 1) && (freq2 > freq1 && freq2Count == 1)
+        ) {
             return "YES"; // Removing one instance makes it valid
         }
 
@@ -66,13 +72,13 @@ public class SherlockValidString {
 
     public static void main(String[] args) {
         // Test Cases
-        System.out.println(isValid("abc"));     // YES
-        System.out.println(isValid("abcc"));    // YES
-        System.out.println(isValid("abccc"));   // NO
-        System.out.println(isValid("aabbcd"));  // NO
-        System.out.println(isValid("aabbcc"));  // YES
-        System.out.println(isValid("aabbc"));   // YES
-        System.out.println(isValid(""));        // YES
+        System.out.println(isValid("abc")); // YES
+        System.out.println(isValid("abcc")); // YES
+        System.out.println(isValid("abccc")); // NO
+        System.out.println(isValid("aabbcd")); // NO
+        System.out.println(isValid("aabbcc")); // YES
+        System.out.println(isValid("aabbc")); // YES
+        System.out.println(isValid("")); // YES
         System.out.println(isValid("a")); //YES
         System.out.println(isValid("abcdefghhgfedecba")); // YES
     }
