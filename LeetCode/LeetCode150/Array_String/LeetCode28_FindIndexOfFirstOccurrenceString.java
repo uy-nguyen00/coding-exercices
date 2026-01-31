@@ -19,24 +19,23 @@ public class LeetCode28_FindIndexOfFirstOccurrenceString {
     /**
      * Sliding Window
      *
-     * Time complexity: O(N*M)
+     * Time complexity: O(h*n)
      *
      * Space complexity: O(1)
      */
     class Solution2 {
 
         public int strStr(String haystack, String needle) {
-            int m = needle.length();
-            int n = haystack.length();
+            int h = haystack.length();
+            int n = needle.length();
 
-            for (int windowStart = 0; windowStart <= n - m; windowStart++) {
-                for (int i = 0; i < m; i++) {
-                    if (needle.charAt(i) != haystack.charAt(windowStart + i)) {
+            for (int windowStart = 0; windowStart <= h - n; windowStart++) {
+                for (int i = 0; i < n; i++) {
+                    if (haystack.charAt(windowStart + i) != needle.charAt(i)) {
                         break;
                     }
-                    if (i == m - 1) {
-                        return windowStart;
-                    }
+
+                    if (i == n - 1) return windowStart;
                 }
             }
 
