@@ -1,6 +1,7 @@
 package LeetCode150.Array_String;
 
 import java.util.ArrayDeque;
+import java.util.Queue;
 
 public class LeetCode100_SameTree {
 
@@ -45,7 +46,14 @@ public class LeetCode100_SameTree {
     }
 
     /**
-     * Recursion
+     * Iteration (BFS)
+     *
+     * Traverses both trees level-by-level using two parallel queues.
+     * At each step, a pair of corresponding nodes is dequeued and their
+     * children are validated before being enqueued for the next level.
+     *
+     * Note: Java's ArrayDeque does not allow null elements, so null children
+     * are checked eagerly (before enqueueing) rather than being stored.
      *
      * Time complexity: O(N)
      *
@@ -53,42 +61,37 @@ public class LeetCode100_SameTree {
      */
     class Solution2 {
 
-        public boolean check(TreeNode p, TreeNode q) {
-            // p and q are null
+        private boolean nodesMatch(TreeNode p, TreeNode q) {
             if (p == null && q == null) return true;
-            // one of p and q is null
-            if (q == null || p == null) return false;
-            if (p.val != q.val) return false;
-            return true;
+            if (p == null || q == null) return false;
+            return p.val == q.val;
         }
 
         public boolean isSameTree(TreeNode p, TreeNode q) {
-            if (p == null && q == null) return true;
-            if (!check(p, q)) return false;
+            if (!nodesMatch(p, q)) return false;
+            if (p == null) return true; // both are null
 
-            // init deques
-            ArrayDeque<TreeNode> deqP = new ArrayDeque<TreeNode>();
-            ArrayDeque<TreeNode> deqQ = new ArrayDeque<TreeNode>();
-            deqP.addLast(p);
-            deqQ.addLast(q);
+            Queue<TreeNode> queueP = new ArrayDeque<>();
+            Queue<TreeNode> queueQ = new ArrayDeque<>();
+            queueP.add(p);
+            queueQ.add(q);
 
-            while (!deqP.isEmpty()) {
-                p = deqP.removeFirst();
-                q = deqQ.removeFirst();
+            while (!queueP.isEmpty()) {
+                TreeNode nodeP = queueP.poll();
+                TreeNode nodeQ = queueQ.poll();
 
-                if (!check(p, q)) return false;
-                if (p != null) {
-                    // in Java nulls are not allowed in Deque
-                    if (!check(p.left, q.left)) return false;
-                    if (p.left != null) {
-                        deqP.addLast(p.left);
-                        deqQ.addLast(q.left);
-                    }
-                    if (!check(p.right, q.right)) return false;
-                    if (p.right != null) {
-                        deqP.addLast(p.right);
-                        deqQ.addLast(q.right);
-                    }
+                // Check left children; only enqueue if both are non-null
+                if (!nodesMatch(nodeP.left, nodeQ.left)) return false;
+                if (nodeP.left != null) {
+                    queueP.add(nodeP.left);
+                    queueQ.add(nodeQ.left);
+                }
+
+                // Check right children; only enqueue if both are non-null
+                if (!nodesMatch(nodeP.right, nodeQ.right)) return false;
+                if (nodeP.right != null) {
+                    queueP.add(nodeP.right);
+                    queueQ.add(nodeQ.right);
                 }
             }
             return true;
