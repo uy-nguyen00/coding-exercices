@@ -74,4 +74,33 @@ public class LeetCode226_InvertBinaryTree {
             return root;
         }
     }
+
+    /**
+     * Iteration with BFS
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(N)
+     */
+    class Solution3 {
+
+        public TreeNode invertTree(TreeNode root) {
+            if (root == null) return null;
+
+            Deque<TreeNode> queue = new ArrayDeque<>();
+            queue.add(root);
+
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.remove();
+                TreeNode temp = node.left;
+                node.left = node.right;
+                node.right = temp;
+
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+
+            return root;
+        }
+    }
 }
