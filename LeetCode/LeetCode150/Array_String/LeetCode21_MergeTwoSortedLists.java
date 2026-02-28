@@ -77,4 +77,36 @@ public class LeetCode21_MergeTwoSortedLists {
             return prehead.next;
         }
     }
+
+    /**
+     * A clearer approach for Iteration
+     *
+     * Time complexity: O(N + M)
+     *
+     * Space complexity: O(1)
+     */
+    class Solution3 {
+
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            ListNode prehead = new ListNode(-1);
+            // Harmonizing pointers
+            ListNode p = prehead;
+            ListNode p1 = list1;
+            ListNode p2 = list2;
+
+            while (p1 != null && p2 != null) {
+                if (p1.val < p2.val) {
+                    p.next = p1;
+                    p1 = p1.next;
+                } else {
+                    p.next = p2;
+                    p2 = p2.next;
+                }
+                p = p.next;
+            }
+
+            p.next = p1 == null ? p2 : p1;
+            return prehead.next;
+        }
+    }
 }
