@@ -76,4 +76,37 @@ public class LeetCode101_SymmetricTree {
             return true;
         }
     }
+
+    /**
+     * Iteration with 2 queues
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(N)
+     */
+    class Solution3 {
+
+        public boolean isSymmetric(TreeNode root) {
+            var leftQueue = new LinkedList<TreeNode>();
+            var rightQueue = new LinkedList<TreeNode>();
+            leftQueue.add(root.left);
+            rightQueue.add(root.right);
+
+            while (!leftQueue.isEmpty() && !rightQueue.isEmpty()) {
+                var leftNode = leftQueue.poll();
+                var rightNode = rightQueue.poll();
+
+                if (leftNode == null && rightNode == null) continue;
+                if (leftNode == null || rightNode == null) return false;
+                if (leftNode.val != rightNode.val) return false;
+
+                leftQueue.add(leftNode.left);
+                leftQueue.add(leftNode.right);
+                rightQueue.add(rightNode.right);
+                rightQueue.add(rightNode.left);
+            }
+
+            return true;
+        }
+    }
 }
