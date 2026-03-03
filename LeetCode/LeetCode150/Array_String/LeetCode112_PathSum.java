@@ -1,5 +1,7 @@
 package LeetCode150.Array_String;
 
+import java.util.ArrayDeque;
+
 public class LeetCode112_PathSum {
 
     class TreeNode {
@@ -39,6 +41,44 @@ public class LeetCode112_PathSum {
                 hasPathSum(root.left, targetSum) ||
                 hasPathSum(root.right, targetSum)
             );
+        }
+    }
+
+    /**
+     * Iteration
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(N)
+     */
+    class Solution {
+
+        public boolean hasPathSum(TreeNode root, int targetSum) {
+            if (root == null) return false;
+
+            var nodeStack = new ArrayDeque<TreeNode>();
+            var sumStack = new ArrayDeque<Integer>();
+            nodeStack.add(root);
+            sumStack.add(targetSum - root.val);
+
+            while (!nodeStack.isEmpty()) {
+                var node = nodeStack.pop();
+                var currentSum = sumStack.pop();
+                if (
+                    node.right == null && node.left == null && currentSum == 0
+                ) return true;
+
+                if (node.right != null) {
+                    nodeStack.add(node.right);
+                    sumStack.add(currentSum - node.right.val);
+                }
+                if (node.left != null) {
+                    nodeStack.add(node.left);
+                    sumStack.add(currentSum - node.left.val);
+                }
+            }
+
+            return false;
         }
     }
 }
