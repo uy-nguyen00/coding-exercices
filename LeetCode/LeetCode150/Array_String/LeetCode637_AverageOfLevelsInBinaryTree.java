@@ -61,4 +61,42 @@ public class LeetCode637_AverageOfLevelsInBinaryTree {
             return res;
         }
     }
+
+    /**
+     * DFS
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(H), where H is the height of the tree
+     */
+    public class Solution2 {
+
+        public List<Double> averageOfLevels(TreeNode root) {
+            List<Double> sums = new ArrayList<>();
+            List<Integer> counts = new ArrayList<>();
+            dfs(root, 0, sums, counts);
+            for (int level = 0; level < sums.size(); level++) {
+                sums.set(level, sums.get(level) / counts.get(level));
+            }
+            return sums;
+        }
+
+        private void dfs(
+            TreeNode node,
+            int level,
+            List<Double> sums,
+            List<Integer> counts
+        ) {
+            if (node == null) return;
+            if (level < sums.size()) {
+                sums.set(level, sums.get(level) + node.val);
+                counts.set(level, counts.get(level) + 1);
+            } else {
+                sums.add((double) node.val);
+                counts.add(1);
+            }
+            dfs(node.left, level + 1, sums, counts);
+            dfs(node.right, level + 1, sums, counts);
+        }
+    }
 }
