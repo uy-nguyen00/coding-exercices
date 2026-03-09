@@ -2,7 +2,6 @@ package LeetCode150.Array_String;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 public class LeetCode637_AverageOfLevelsInBinaryTree {
@@ -33,32 +32,64 @@ public class LeetCode637_AverageOfLevelsInBinaryTree {
      *
      * Space complexity: O(M), where M is the maximum number of nodes at any level in the input tree
      */
-    public class Solution1 {
+    class Solution1 {
 
         public List<Double> averageOfLevels(TreeNode root) {
-            List<Double> res = new ArrayList<>();
-            Deque<TreeNode> queue = new ArrayDeque<>();
+            var avgs = new ArrayList<Double>();
+            var queue = new ArrayDeque<TreeNode>();
             queue.add(root);
 
             while (!queue.isEmpty()) {
-                long sum = 0,
-                    count = 0;
-                Deque<TreeNode> temp = new ArrayDeque<>();
+                long sum = 0;
+                long count = 0;
+                var nextLevelQueue = new ArrayDeque<TreeNode>();
 
                 while (!queue.isEmpty()) {
-                    TreeNode n = queue.remove();
-                    sum += n.val;
+                    var currentNode = queue.poll();
+                    sum += currentNode.val;
                     count++;
 
-                    if (n.left != null) temp.add(n.left);
-                    if (n.right != null) temp.add(n.right);
+                    if (currentNode.left != null) nextLevelQueue.add(
+                        currentNode.left
+                    );
+                    if (currentNode.right != null) nextLevelQueue.add(
+                        currentNode.right
+                    );
                 }
 
-                queue = temp;
-                res.add((sum * 1.0) / count);
+                queue = nextLevelQueue;
+                avgs.add((sum * 1.0) / count);
             }
 
-            return res;
+            return avgs;
+        }
+    }
+
+    /**
+     * Same as Solution1 except using a single queue
+     */
+    public class Solution1bis {
+
+        public List<Double> averageOfLevels(TreeNode root) {
+            var avgs = new ArrayList<Double>();
+            var queue = new ArrayDeque<TreeNode>();
+            queue.add(root);
+
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+                long sum = 0;
+
+                for (int i = 0; i < size; i++) {
+                    var node = queue.poll();
+                    sum += node.val;
+                    if (node.left != null) queue.add(node.left);
+                    if (node.right != null) queue.add(node.right);
+                }
+
+                avgs.add((double) sum / size);
+            }
+
+            return avgs;
         }
     }
 
