@@ -63,4 +63,35 @@ public class LeetCode530_MinimumAbsoluteDifferenceInBST {
             return minDifference;
         }
     }
+
+    /**
+     * In-order DFS (leverages BST sorted property)
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(H) - H is tree height (call stack only, no list)
+     */
+    class Solution2 {
+
+        int minDifference = Integer.MAX_VALUE;
+        Integer prevValue = null;
+
+        void inOrder(TreeNode node) {
+            if (node == null) {
+                return;
+            }
+
+            inOrder(node.left);
+            if (prevValue != null) {
+                minDifference = Math.min(minDifference, node.val - prevValue);
+            }
+            prevValue = node.val;
+            inOrder(node.right);
+        }
+
+        int getMinimumDifference(TreeNode root) {
+            inOrder(root);
+            return minDifference;
+        }
+    }
 }
