@@ -28,7 +28,7 @@ public class LeetCode530_MinimumAbsoluteDifferenceInBST {
     /**
      * DFS
      *
-     * Time complexity: O(N)
+     * Time complexity: O(N logN)
      *
      * Space complexity: O(N)
      */
