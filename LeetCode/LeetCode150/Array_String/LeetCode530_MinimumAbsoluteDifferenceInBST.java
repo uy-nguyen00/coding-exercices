@@ -94,4 +94,40 @@ public class LeetCode530_MinimumAbsoluteDifferenceInBST {
             return minDifference;
         }
     }
+
+    /**
+     *
+     * Brute-force approach
+     *
+     * Time complexity: O(N^2)
+     *
+     * Space complexity: O(N)
+     */
+    class Solution3 {
+
+        public int getMinimumDifference(TreeNode root) {
+            List<Integer> values = new ArrayList<>();
+            collectValues(root, values);
+            int min = Integer.MAX_VALUE;
+
+            for (int i = 0; i < values.size() - 1; i++) {
+                for (int j = i + 1; j < values.size(); j++) {
+                    int diff = Math.abs(values.get(i) - values.get(j));
+                    min = Math.min(min, diff);
+
+                    if (min == 0) return 0;
+                }
+            }
+
+            return min;
+        }
+
+        private void collectValues(TreeNode node, List<Integer> values) {
+            if (node == null) return;
+
+            values.add(node.val);
+            collectValues(node.left, values);
+            collectValues(node.right, values);
+        }
+    }
 }
