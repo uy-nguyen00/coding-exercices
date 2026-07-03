@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Hashmap;
 
 public class LeetCode242_ValidAnagram {
 

@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Binary_Search;
 
 public class LeetCode35_SearchInsertPosition {
 

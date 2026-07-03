@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Two_Pointers;
 
 class LeetCode392_IsSubsequence {
 

@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Linked_List;
 
 public class LeetCode21_MergeTwoSortedLists {
 

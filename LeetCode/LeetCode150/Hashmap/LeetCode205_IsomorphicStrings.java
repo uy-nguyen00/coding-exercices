@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Hashmap;
 
 import java.util.Arrays;
 import java.util.HashMap;

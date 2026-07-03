@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Binary_Search_Tree;
 
 import java.util.ArrayList;
 import java.util.Collections;

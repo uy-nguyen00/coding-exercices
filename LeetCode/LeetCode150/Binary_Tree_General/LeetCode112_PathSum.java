@@ -1,4 +1,4 @@
-package LeetCode150.Array_String;
+package LeetCode150.Binary_Tree_General;
 
 import java.util.ArrayDeque;
 
