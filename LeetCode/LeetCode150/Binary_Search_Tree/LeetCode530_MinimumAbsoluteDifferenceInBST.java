@@ -166,4 +166,36 @@ public class LeetCode530_MinimumAbsoluteDifferenceInBST {
             collectValues(node.right, values);
         }
     }
+
+    /**
+     *
+     * In-order Traversal + Adjacent Comparison
+     *
+     * Time complexity: O(N)
+     *
+     * Space complexity: O(N)
+     */
+    class Solution5 {
+
+        public int getMinimumDifference(TreeNode root) {
+            List<Integer> values = new ArrayList<>();
+            collectValues(root, values);
+            int min = Integer.MAX_VALUE;
+
+            for (int i = 0; i < values.size() - 1; i++) {
+                int diff = values.get(i + 1) - values.get(i);
+                min = Math.min(min, diff);
+            }
+
+            return min;
+        }
+
+        private void collectValues(TreeNode node, List<Integer> values) {
+            if (node == null) return;
+
+            collectValues(node.left, values);
+            values.add(node.val);
+            collectValues(node.right, values);
+        }
+    }
 }
